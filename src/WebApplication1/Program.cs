@@ -32,8 +32,12 @@ app.MapControllers();
 
 using (var scope = app.Services.CreateScope())
 {
-    var dataConnection = scope.ServiceProvider.GetService<AppDataConnection>();
-    //dataConnection.CreateTable<Person>();
+    var db = scope.ServiceProvider.GetService<AppDataConnection>();
+    var schema = db.DataProvider.GetSchemaProvider();
+    var dbSchema = schema.GetSchema(db);
+    if (!dbSchema.Tables.Any(t => t.TableName == "Person"))
+    {
+        db.CreateTable<Person>();
+    }
 }
-
 await app.RunAsync();

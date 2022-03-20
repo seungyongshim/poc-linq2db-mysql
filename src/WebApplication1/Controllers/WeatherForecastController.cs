@@ -6,7 +6,7 @@ namespace WebApplication1.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class PeopleController : ControllerBase
+public class PeopleController : ControllerBase, IDisposable
 {
     AppDataConnection Connection;
 
@@ -40,4 +40,6 @@ public class PeopleController : ControllerBase
     [HttpPut]
     public Task<int> InsertPerson(Person person) =>
         Connection.InsertOrReplaceAsync(person);
+
+    public void Dispose() => Connection.Dispose();
 }
