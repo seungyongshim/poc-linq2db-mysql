@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="linq2db.AspNet" Version="4.0.0-preview.10" />
     <PackageReference Include="linq2db.MySql" Version="4.0.0-preview.9-fixed" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
 </Project>
